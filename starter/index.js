@@ -47,3 +47,16 @@ $(document).ready(function () {
                 localStorage.removeItem(currentInputActivity);
             }
         }
+
+        // Create a save button element
+        let saveButton = $("<button>")
+            .addClass("saveBtn col-2")
+            .html("<i class='fas fa-save'></i>");
+
+         // When the save button is clicked
+         saveButton.click(function () {
+            // Save the current schedule to local storage with the date
+            localStorage.setItem(
+                currentInputActivity,
+                scheduleInput.val() + "<>" + today
+            );
