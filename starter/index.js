@@ -1,6 +1,7 @@
-// Get the current date and time using Moment.js
-var currentDate = moment();
-var currentHour = currentDate.hour();
+$(document).ready(function () {
 
-// Display the current day at the top of the calendar
-document.getElementById("currentDay").innerHTML = currentDate.format("dddd, MMMM Do YYYY");
+    // Get the current date and time and display it on the page
+    let today = moment().format("dddd Do MMMM, YYYY");
+    $("#currentDay").text(today)});
+
+    
