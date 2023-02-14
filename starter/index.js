@@ -17,3 +17,14 @@ $(document).ready(function () {
     let timeout;
     // Create a save message element
     let saveMessage = $("<p>").addClass("message").text("Your actvity has been saved");
+
+    // Loop through the hours and create time blocks for each hour
+    hours.forEach((hour, index) => {
+        // Create a time block element
+        let timeBlock = $("<div>").addClass("time-block row");
+        // Create an element for the hour
+        let hourElement = $("<div>").addClass("hour col-2").text(hour);
+        // Create an input element for the schedule
+        let scheduleInput = $("<input>")
+            .addClass("scheduleInput col-8")
+            .attr("id", `input-${index}`); // Set a unique id for each input
