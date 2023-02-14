@@ -60,3 +60,19 @@ $(document).ready(function () {
                 currentInputActivity,
                 scheduleInput.val() + "<>" + today
             );
+
+            // If there is a previous timeout, clear it
+            if (timeout != null) {
+                clearTimeout(timeout);
+            } else {
+                // If there is no previous timeout, add the save message to the page
+                $(".jumbotron").append(saveMessage);
+            }
+
+            // Set a timeout for the save message to disappear, 3 seconds
+            timeout = setTimeout(function () {
+                saveMessage.remove();
+                timeout = null;
+            }, 3000);
+        });
+
