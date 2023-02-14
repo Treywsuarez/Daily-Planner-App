@@ -8,7 +8,7 @@ DayPlanner is a web application that provides users with a convenient way to pla
 To enter an event, click on a time block and start typing. To save your event, click the save button next to the time block. Your event will be saved in local storage and will persist between refreshes of the page.
 
 # Deployment
-You can deploy DayPlanner by visiting this link: 
+You can deploy DayPlanner by visiting this link: https://treywsuarez.github.io/Daily-Planner-App/
 
 
 ![](./images/05-third-party-apis-homework-demo.gif)
