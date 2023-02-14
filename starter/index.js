@@ -28,3 +28,22 @@ $(document).ready(function () {
         let scheduleInput = $("<input>")
             .addClass("scheduleInput col-8")
             .attr("id", `input-${index}`); // Set a unique id for each input
+
+        // Declare a variable to store the current input activity in local storage
+        let currentInputActivity = `inputActivity${index}`;
+        // Get the stored schedule for this hour
+        let storedSchedule = localStorage.getItem(currentInputActivity);
+
+        // If there is a stored schedule
+        if (storedSchedule) {
+            // Split the stored schedule into its parts
+            let splitInputActivity = storedSchedule.split("<>");
+            // If the stored schedule is from today
+            if (splitInputActivity[1] === today) {
+                // Set the value of the schedule input to the stored activity
+                scheduleInput.val(splitInputActivity[0]);
+            } else {
+                // If the stored schedule is not from today, remove it from local storage
+                localStorage.removeItem(currentInputActivity);
+            }
+        }
