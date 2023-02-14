@@ -53,8 +53,8 @@ $(document).ready(function () {
             .addClass("saveBtn col-2")
             .html("<i class='fas fa-save'></i>");
 
-         // When the save button is clicked
-         saveButton.click(function () {
+        // When the save button is clicked
+        saveButton.click(function () {
             // Save the current schedule to local storage with the date
             localStorage.setItem(
                 currentInputActivity,
@@ -75,4 +75,28 @@ $(document).ready(function () {
                 timeout = null;
             }, 3000);
         });
+
+        timeBlock.append(hourElement).append(scheduleInput).append(saveButton);
+
+        $(".container").append(timeBlock);
+
+    });
+
+    // check if the hour is in the past present or future and assign a class
+    for (let i = 0; i < hours.length; i++) {
+
+        // starts at 0 so +9 (0 + 9) so that it represents 9am
+        let eachtimeBlock = moment().hour(i + 9);
+        // input-${i} corresponds with the unique id of each element 
+        let currentIndex = $(`#input-${i}`);
+
+        if (moment().isBefore(eachtimeBlock)) {
+            currentIndex.addClass("future");
+        } else if (moment().isAfter(eachtimeBlock)) {
+            currentIndex.addClass("past");
+        } else {
+            currentIndex.addClass("present");
+        }
+    }
+});
 
